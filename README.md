@@ -1,6 +1,5 @@
 # Build recommendation engine with Amazon Machine Learning in S3
-## ECV
-### Bootcamp
+## ECV Bootcamp
 
 By the end of this lab, you will be able to:
 
