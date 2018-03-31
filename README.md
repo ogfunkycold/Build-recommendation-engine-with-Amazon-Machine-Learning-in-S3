@@ -1,4 +1,4 @@
-# Build-recommendation-engine-with-Amazon-Machine-Learning-in-S3
+# Build recommendation engine with Amazon Machine Learning in S3
 
 By the end of this lab, you will be able to:
   -create a Redshift cluster, build Redshift table and load data from Amazon S3.
