@@ -44,7 +44,7 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 
 1.4. 	Select the bucket which you created before, Click ‘Upload’, Click ‘Add files’.
 
-1.5. 	Select the day_part_two.csv file which in the share folder, then choose Click ‘Start Upload’.
+1.5. 	Select the **day_part_two.csv** file which in the share folder, then choose Click ‘Start Upload’.
 
 
 #### Working with Amazon Machine Learning
