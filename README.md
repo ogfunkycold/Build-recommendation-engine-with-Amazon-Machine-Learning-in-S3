@@ -40,7 +40,7 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 
 1.2. 	For Bucket Name, type **‘Unique Name’**.
 
-1.3. 	For Region, choose ‘US Standard’, Click ‘Create’.
+1.3. 	For Region, choose ‘US East (N. Virginia)’, Click ‘Create’.
 
 1.4. 	Select the bucket which you created before, Click ‘Upload’, Click ‘Add files’.
 
