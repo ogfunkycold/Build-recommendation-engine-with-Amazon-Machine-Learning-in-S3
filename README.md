@@ -69,9 +69,9 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 
 1.13. 	In Schema part:
 
-* About first line in the column name, click yes when you see the question: Does the first line in your CSV contain the column names?
-* For	Datatype,	choose	season/mnth/weekday/workingday/weathersit	as Catagorical
-* For Datatype, choose cnt as Numetric
+* About first line in the column name, click **yes** when you see the question: Does the first line in your CSV contain the column names?
+* For	Datatype,	choose	season/mnth/weekday/workingday/weathersit	as **Catagorical**
+* For Datatype, choose cnt as **Numetric**
 * Click ‘Continue’
 
 1.14. 	In Target part:
