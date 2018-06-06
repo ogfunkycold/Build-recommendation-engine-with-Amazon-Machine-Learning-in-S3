@@ -36,71 +36,71 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 ## Lab tutorial
 #### Upload file to S3
 
-1.1. 	On the service menu, click ‘S3’, Click ‘Create Bucket’.
+1. 	On the service menu, click ‘S3’, Click ‘Create Bucket’.
 
-1.2. 	For Bucket Name, type **‘Unique Name’**.
+2. 	For Bucket Name, type **‘Unique Name’**.
 
-1.3. 	For Region, choose ‘US East (N. Virginia)’, Click ‘Create’.
+3. 	For Region, choose ‘US East (N. Virginia)’, Click ‘Create’.
 
-1.4. 	Select the bucket which you created before, Click ‘Upload’, Click ‘Add files’.
+4. 	Select the bucket which you created before, Click ‘Upload’, Click ‘Add files’.
 
-1.5. 	Select the **day_part_two.csv** file which in the share folder, then choose Click ‘Start Upload’.
+5. 	Select the **day_part_two.csv** file which in the share folder, then choose Click ‘Start Upload’.
 
 
 #### Working with Amazon Machine Learning
 
 ##### Create Model via Amazon Machine Learning
 
-1.6. 	On the service menu, click ‘Machine Learning’.
+1. 	On the service menu, click ‘Machine Learning’.
 
-1.7. 	Click ‘Create a new Datasource and ML model’.
+2. 	Click ‘Get Started’ and ‘Launch’.
 
-1.8. 	For ‘where is your data’, choose ‘S3’.
+3. 	For ‘where is your data’, choose ‘S3’.
 
-1.9. 	For **S3 location**, choose the s3 bucket location/file which you created.
+4. 	For **S3 location**, choose the s3 bucket location/file which you created.
 
-1.10. 	For Datasource name, type ‘aml‐ver2’, Click ‘Verify’.
+5. 	For Datasource name, type ‘aml‐ver2’, Click ‘Verify’.
 
-1.11. 	For S3 permissions, click ‘yes’ about Amazon ML needs read permission for this Amazon S3 location. Do you want to grant permission?
+6. 	For S3 permissions, click ‘yes’ about Amazon ML needs read permission for this Amazon S3 location. Do you want to grant permission?
 
 > Note: You will see ‘The validation is successful. To go to the next step, choose Continue’
 
-1.12. 	Click ‘Continue’.
+7. 	Click ‘Continue’.
 
-1.13. 	In Schema part:
+8. 	In Schema part:
 
 * About first line in the column name, click **yes** when you see the question: Does the first line in your CSV contain the column names?
 * For	Datatype,	choose	season/mnth/weekday/workingday/weathersit	as **Catagorical**
 * For Datatype, choose cnt as **Numetric**
 * Click ‘Continue’
 
-1.14. 	In Target part:
+9. 	In Target part:
 
 * For target, choose ‘cnt’ as target for prediction
 * Click ‘Continue’
 
-1.15. 	In Row ID part:
+10. 	In Row ID part:
 
 * Click ‘Review’
 
-1.16. 	In Review part:
+11. 	In Review part:
 
 * Click ‘Finish’
 
-1.17. 	In ML model settings part:
+12. 	In ML model settings part:
 
 * Click ‘Review’
 
-1.18. 	In Review part:
+13. 	In Review part:
 
 * Click ‘Create ML Model’
 * For this moment, you will see the message said ‘ status: Pending’, you can test this machine learning until the status go to ‘completed’
 
 ##### Testing with Amazon Machine Learning
 
-1.19. 	For Dashboard, click ‘ML‐model’ which AML created. 
+14. 	For Dashboard, click ‘ML‐model’ which AML created. 
 
-1.20. 	For the left panel, click ‘Try real-time predictions’
+15. 	For the left panel, click ‘Try real-time predictions’
 
 * For season, you can type 1 to 4
 * For mnth, you can type 1 to 12
@@ -108,7 +108,7 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 * For workingday, you can type 1 to 2
 * For weathersit, you can type 1 to 4
 
-1.21. Then, click ‘create prediction’, you will see the predict value in the right panel. 	
+16. Then, click ‘create prediction’, you will see the predict value in the right panel. 	
 
 
 ## End your lab
