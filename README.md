@@ -79,28 +79,28 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 * For target, choose ‘cnt’ as target for prediction
 * Click ‘Continue’
 
-10. 	In Row ID part:
+10. In Row ID part:
 
 * Click ‘Review’
 
-11. 	In Review part:
+11. In Review part:
 
 * Click ‘Finish’
 
-12. 	In ML model settings part:
+12. In ML model settings part:
 
 * Click ‘Review’
 
-13. 	In Review part:
+13. In Review part:
 
 * Click ‘Create ML Model’
 * For this moment, you will see the message said ‘ status: Pending’, you can test this machine learning until the status go to ‘completed’
 
 ##### Testing with Amazon Machine Learning
 
-14. 	For Dashboard, click ‘ML‐model’ which AML created. 
+14. For Dashboard, click ‘ML‐model’ which AML created. 
 
-15. 	For the left panel, click ‘Try real-time predictions’
+15. For the left panel, click ‘Try real-time predictions’
 
 * For season, you can type 1 to 4
 * For mnth, you can type 1 to 12
