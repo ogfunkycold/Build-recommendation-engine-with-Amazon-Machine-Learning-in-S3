@@ -38,8 +38,6 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 1.5. 	Select the **day_part_two.csv** file which in the Github share folder, then choose Click **Start Upload**.
 
 
-## Working with Amazon Machine Learning
-
 ### Create Model via Amazon Machine Learning
 
 2.1. 	On the service menu, click **Machine Learning**.
