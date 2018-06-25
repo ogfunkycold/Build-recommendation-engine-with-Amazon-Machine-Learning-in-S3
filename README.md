@@ -14,7 +14,7 @@ By the end of this lab, you will be able to:
 * Upload and store data in Amazon S3.
 * Create a Machine Learning Model
 * Train the Machine Learning Model, using historic data about rental bikes.
-* Predict the rental amount for the future sharebike system with Redshift and Amazon Machine Learning
+* Predict the rental amount for the future sharebike system with S3 and Amazon Machine Learning
 
 ## About this lab
 ### Scenario
