@@ -3,15 +3,15 @@ Build recommendation engine with Amazon Machine Learning in S3
 
 ## Introduction
 ### Overview
-In this lab, you will build a smart solution using Amazon Redshift and Amazon Machine Learning that predict rental bikes for Capital bikeshare system.
+In this lab, you will build a smart solution using [Amazon S3](https://aws.amazon.com/s3/) and [Amazon Machine Learning](https://aws.amazon.com/machine-learning/) that predict rental bikes for Capital bikeshare system.
 The dataset contains daily amount of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information.
-You will learn how to use Redshift and predict using Machine Learning to create a model that will predict the rental bikes.
+You will learn how to use S3 and predict using Machine Learning to create a model that will predict the rental bikes.
 
 ### Topics covered
 
 By the end of this lab, you will be able to:
 
-* Create a Redshift cluster, build Redshift table and load data from Amazon S3.
+* Upload and store data in Amazon S3.
 * Create a Machine Learning Model
 * Train the Machine Learning Model, using historic data about rental bikes.
 * Predict the rental amount for the future sharebike system with Redshift and Amazon Machine Learning
