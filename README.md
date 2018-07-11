@@ -23,6 +23,7 @@ We upload data into S3. Then, we used Amazon Machine Learning for training model
 
 >Make sure your are in US East (N. Virginia), which short name is us-east-1.
 
+>Download the file **day_part_two.csv**.
 
 ## Lab tutorial
 ### Upload file to S3
