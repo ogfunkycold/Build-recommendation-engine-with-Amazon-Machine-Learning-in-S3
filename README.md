@@ -1,109 +1,176 @@
-Build recommendation engine with Amazon Machine Learning in S3
-================================================================
+Build recommendation engine with Amazon Machine Learning in Cloud9
+==============================================================
 
-## Introduction
-### Overview
-In this lab, you will build a smart solution using [Amazon S3](https://aws.amazon.com/s3/) and [Amazon Machine Learning](https://aws.amazon.com/machine-learning/) that predict rental bikes for Capital bike-share system.
-The dataset contains the daily amount of rental bikes between years 2011 and 2012 in the Capital bike-share system with the corresponding weather and seasonal information.
-You will learn how to use S3 and predict using Machine Learning to create a model that will predict the rental bikes.
+## Scenario
+In this lab, you will build a solution using [Amazon S3](https://aws.amazon.com/s3/) , [Amazon Machine Learning](https://aws.amazon.com/machine-learning/) and [Amazon Cloud9](https://aws.amazon.com/tw/cloud9/) that predict rental bikes for Capital bike-share system. The dataset contains the daily amount of rental bikes between years 2011 and 2012 in the Capital bike-share system with the corresponding weather and seasonal information. You will learn how to use S3 to save data and predict using Machine Learning to create a model that will predict the rental bikes.
 
-## About this lab
-### Scenario
-
-The dataset contains the daily amount of rental bikes between years 2011 and 2012 in the Capital bike-share system with the corresponding weather and seasonal information.
-All we want to know is how much bikes we should prepare for the next week. To avoid the situation when the supply could not meet the demand.
-
-### Architecture Diagram
-We upload data into S3. Then, we used Amazon Machine Learning for training model and prediction. All of the output will be stored into S3.
-
-![1.jpg](/images/1.jpg)
-
-
-## Prerequisites
-
->Make sure you are in US East (N. Virginia), which short name is us-east-1.
-
->Download the file **day_part_two.csv**.
+## Prerequisite
+- Make sure the region is __US East (N. Virginia)__, which its short name is __us-east-1__.
 
 ## Lab tutorial
-### Upload file to S3
+### Upload dataset file to S3 bucket
+- On the service menu, click __S3__, Click __Create Bucket__.
 
-1.1.     On the service menu, click **S3**, Click **Create Bucket**.
+- For Bucket Name, type __Unique Name__.
 
-1.2.     For Bucket Name, type **Unique Name**.
+- For Region, choose __US East (N. Virginia)__, Click __Create__.
+![CreateBucket.jpg](./images/CreateBucket.jpg)
 
-1.3.     For Region, choose **US East (N. Virginia)**, Click **Create**.
+- Select the bucket which you created before, Click __Upload__, Click __Add files__.
+![UploadFile.png](./images/UploadFile.png)
 
-1.4.     Select the bucket which you created before, Click **Upload**, Click **Add files**.
+- Select the __bike.csv__ file, then choose Click __Start Upload__.
+![UploadBike.png](./images/UploadBike.png)
 
-1.5.     Select the **day_part_two.csv** file which in the Github share folder, then choose Click **Start Upload**.
+### Create Model using Amazon Machine Learning
+- On the service menu, click __Machine Learning__.
 
+- Click __Get Started__ and __Launch__.
 
-### Create Model via Amazon Machine Learning
+- For __Where is your data__, choose __S3__.
 
-2.1.     On the service menu, click **Machine Learning**.
+- For __S3 location__, choose the s3 bucket location/file which you created.
 
-2.2.     Click ‘Get Started’ and **Launch**.
+- For __Datasource name__, type __ml‐data__, Click __Verify__.
+![ModelSetting.jpg](./images/ModelSetting.jpg)
 
-2.3.     For **where is your data**, choose **S3**.
-
-2.4.     For **S3 location**, choose the s3 bucket location/file which you created.
-
-2.5.     For Datasource name, type **aml‐ver2**, Click **Verify**.
-
-2.6.     For S3 permissions, click **yes** about Amazon ML needs read permission for this Amazon S3 location. Do you want to grant permission?
+- For __S3 permissions__, click __yes__.
+![S3Permissions.png](./images/S3Permissions.png)
 
 > Note: You will see ‘The validation is successful. To go to the next step, choose Continue’
+![VaildationSuccess.jpg](./images/VaildationSuccess.jpg)
 
-2.7.     Click **Continue**.
+- Click __Continue__.
 
-2.8.     In Schema part:
+- In __Schema__ part:
+    1. About the first line in the column name, click __yes__ when you see the question: Does the first line in your CSV contain the column names?
+    2. For Datatype, choose season/mnth/weekday/workingday/weathersit as __Categorical__
+    3. For Datatype, choose cnt as __Numetric__.
+    ![SetColumnType.png](./images/SetColumnType.png)
+    
+    4. Click __Continue__.
 
-* About the first line in the column name, click **yes** when you see the question: Does the first line in your CSV contain the column names?
-* For    Datatype,    choose    season/mnth/weekday/workingday/weathersit    as **Categorical**
-* For Datatype, choose cnt as **Numetric**
-* Click ‘Continue’
+- In __Target__ part:
+    1. For target, choose __cnt__ as target for prediction.
+    2. Click __Continue__.
 
-2.9.     In Target part:
+- In __Row ID__ part, click __Review__.
 
-* For target, choose **cnt** as target for prediction
-* Click **Continue**
+- In __Review__ part, click __Continue__.
 
-2.10. In Row ID part:
+- In __ML model settings__ part, click __Review__.
 
-* Click **Review**
+- In __Review__ part, 
+    1. Click __Create ML Model__.
+    2. Wait for Amazon ML reports the status as __Completed__.
+    ![ModelComplete.jpg](./images/ModelComplete.jpg)
 
-2.11. In Review part:
+    3. Note your model __ID__.
 
-* Click **Finish**
+- In Predictions section, click __Create endpoint__ to enable real-time predictions.
+![CheckEndpoint.png](./images/CheckEndpoint.png)
 
-2.12. In ML model settings part:
+- For __Create a real-time endpoint__ dialog, click __Create__.
+![CreatePredictEndpoint.png](./images/CreatePredictEndpoint.png)
 
-* Click **Review**
+- Note your real-time prediction __Endpoint Url__.
+![EndpointUrl.png](./images/EndpointUrl.png)
 
-2.13. In Review part:
+### Test Model in Web page using Cloud9
+- On the service menu, click __Cloud9__, click __Create environment__.
 
-* Click **Create ML Model**
-* For this moment, you will see the message said **status: Pending**, you can test this machine learning until the status go to **completed**.
+- Enter the followings:
+    1. Name : __test-ml-model__
+    2. Describe : use to test AWS ML
+    ![Cloud9Name.png](./images/Cloud9Name.png)
 
-### Testing with Amazon Machine Learning
+- Click __Next step__.
 
-3.1. For Dashboard, click **ML‐model** which AML created. 
+- In __Environment settings__ part:
+    1. Environment type : Choose __Create a new instance for environment (EC2)__.
+    2. Instance type : Choose __t2.micro (1 GiB RAM + 1 vCPU)__.
+    ![Cloud9Setting.png](./images/Cloud9Setting.png)
 
-3.2. For the left panel, click **Try real-time predictions**
+- Click __Next step__.
 
-* For the season, you can type 1 to 4
-* For mnth, you can type 1 to 12
-* For weekday, you can type 1 to 7
-* For workingday, you can type 1 to 2
-* For weathersit, you can type 1 to 4
+- At __Review__ page, click __Create environment__.
 
-3.3. Then, click **create prediction**, you will see the predictive value in the right panel.     
+- You will see the page like below.
+![Cloud9Page.png](./images/Cloud9Page.png)
+
+- Please download the __Web__ folder in this tutorial. 
+
+- In the navigation pane, click __File__ and choose __Select folder__.
+
+- Choose the folder __Web__ you download before.
+
+- Copy below command and paste into terminal to update packges.
+    
+      sudo yum -y update
+
+    ![YumUpdate.png](./images/YumUpdate.png)
+
+- Enter the command in terminal to change folder to __Web__.
+
+      cd Web
+
+- Enter the command in terminal to install php packge.
+
+      sudo yum -y install php56
+
+    ![InstallPHP.png](./images/InstallPHP.png)
+
+- Enter the command in terminal to install composer.
+
+      curl -sS https://getcomposer.org/installer | php
+
+    ![InstallComposer.png](./images/InstallComposer.png)
+
+- Enter the command in terminal to install __AWS SDK for PHP__.
+
+
+      php composer.phar require aws/aws-sdk-php
+
+- Open the __regression.php__ in console.
+![OpenPhp.png](./images/OpenPhp.png)
+
+- At line 118 and 119, paste __your model id__ and __your predict endpoint__ here.
+![Line118119.png](./images/Line118119.png)
+
+- At line 164, paste __your model id__ here.
+![Line164.png](./images/Line164.png)
+
+- In the navigation pane, click __Run__ and choose __Run Configurations__.
+
+- Choose __New Run Configuration__.
+
+- In __Command__ field, enter the following :
+       
+      Web/regression.php
+
+- In __Runner__ part, choose __PHP (built-in web server)__.
+![RunConfiguration.png](./images/RunConfiguration.png)
+
+- Click green button __Run__.
+
+- In the navigation pane, click __Review__ and choose __Preview Running Application__.
+
+- You will see the page like below.
+![NotFound.png](./images/NotFound.png)
+
+- Add the following behind the __/__.
+
+      Web/regression.php
+
+- You will see the below page.
+![SuccessPage.png](./images/SuccessPage.png)
+
+- Click __Predict__, you will see the predict result.
+![PredictResult.png](./images/PredictResult.png)
 
 
 ## Conclusion
-Congratulations! You now have learned how to:
-* Upload and store data in Amazon S3.
-* Create a Machine Learning Model
-* Train the Machine Learning Model, using historical data about rental bikes.
-* Predict the rental amount for the future share-bike system with S3 and Amazon Machine Learning
+Congratulations! We now have learned how to:
+- Build a simple model using AWS Machine Learning
+- Create a S3 bucket to save dataset
+- Use Cloud9 to run php application
